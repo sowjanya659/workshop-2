@@ -1,38 +1,37 @@
+## ~/.ssh/config ##
+
 Host bastionET2598
-    Hostname 31.132.58.160
+    Hostname 45.114.123.77
     user ubuntu
     IdentityFile ~/.ssh/id_rsa
-    ForwardAgent yes
-    ControlMaster auto
     StrictHostKeyChecking no
-    ControlPath ~/.ssh/ansible-%r@%h:%p
-    ControlPersist 5m
+    ForwardAgent yes
 
 Host devA
-    Hostname 10.6.0.199
+    Hostname 10.6.0.222
     user ubuntu
     IdentityFile ~/.ssh/id_rsa
     StrictHostKeyChecking no
-    ProxyCommand ssh -W %h:%p bastionET2598
-  
+    ProxyCommand ssh bastionET2598 -W %h:%p
+
 Host devB
-    Hostname 10.6.0.156
+    Hostname 10.6.0.71
     user ubuntu
     IdentityFile ~/.ssh/id_rsa
     StrictHostKeyChecking no
-    ProxyCommand ssh -W %h:%p bastionET2598
-
+    ProxyCommand ssh bastionET2598 -W %h:%p
+    
 Host devC
-    Hostname 10.6.0.62
+    Hostname 10.6.0.163 
     user ubuntu
     IdentityFile ~/.ssh/id_rsa
     StrictHostKeyChecking no
-    ProxyCommand ssh -W %h:%p bastionET2598
-
+    ProxyCommand ssh bastionET2598 -W %h:%p
+    
 Host devhaproxy
-    Hostname 10.6.0.111
+    Hostname 10.6.0.182
     user ubuntu
     IdentityFile ~/.ssh/id_rsa
     StrictHostKeyChecking no
-    ProxyCommand ssh -W %h:%p bastionET2598
+    ProxyCommand ssh bastionET2598 -W %h:%p 
 
